@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InstrumentTest < ActiveSupport::TestCase
+class GigsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
