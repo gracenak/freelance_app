@@ -6,6 +6,7 @@ class CreateGigs < ActiveRecord::Migration[6.0]
       t.string :description
       t.decimal :payment
       t.integer :user_id
+      t.integer :union_id
 
       t.timestamps
     end
