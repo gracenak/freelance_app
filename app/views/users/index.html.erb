@@ -1,4 +1,4 @@
 <h1>Meet Fellow Musicians! </h1>
 <% @users.each do |user| %>
-    <p><%= user.first_name %></p>
+    <p><%= link_to user.full_name, user_path(user.id) %></p>
 <% end %>

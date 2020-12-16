@@ -1,0 +1,10 @@
+<h1><%= @gig.title %></h1>
+<li><%= @gig.datetime %>
+<li><%= @gig.description %>
+<li>$<%= @gig.payment %>
+<% @gig.instruments.each do |instrument| %>
+<li><%= instrument.name %>
+
+<% end %>
+
+<p><%= link_to "Check out more Gigs", gigs_path %></p>

@@ -1,4 +1,4 @@
-class GigInstrument < ApplicationRecord
+class Instrument < ApplicationRecord
     belongs_to :user
     belongs_to :gig
 end

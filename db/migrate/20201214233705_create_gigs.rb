@@ -5,7 +5,6 @@ class CreateGigs < ActiveRecord::Migration[6.0]
       t.datetime :datetime
       t.string :description
       t.decimal :payment
-      t.integer :user_id
 
       t.timestamps
     end
