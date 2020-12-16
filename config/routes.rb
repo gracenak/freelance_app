@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#home'
+
   resources :users
+  resources :gigs
 
   patch 'users/:id' => 'users#update'
 

@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
 
-  
+  def index
+    @users = User.all
+  end
+
+
   def new
     @user = User.new
   end
 
   def create
-    @user = User.create(user_params)
-    if @user
+    @user = User.new(user_params)
+    if @user.save
       session[:user_id] = @user.id
       redirect_to '/login'
     else
@@ -18,6 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to '/' if !@user
 
   end
 

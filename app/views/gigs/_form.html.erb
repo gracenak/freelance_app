@@ -1,0 +1,18 @@
+<%= form_for @gig do |f| %>
+    <p><%= f.label :title %>
+    <%= f.text_field :title %></p>
+
+    <p><%= f.label :datetime %>
+    <%= f.datetime_local_field :datetime %></p>
+
+    <p><%= f.label :description %>
+    <%= f.text_area :description %></p>
+
+    <p><%= f.label :payment %>
+    <p>$</p><%= f.text_field :payment %></p>
+
+    <%= f.submit %>
+
+<% end %>
+
+

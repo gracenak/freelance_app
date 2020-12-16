@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+  def home
+
+  end
+
   def new
     @user = User.new
   end
@@ -11,6 +15,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      flash[:message] = "Invalid credentials."
       render :new
     end
 
