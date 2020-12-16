@@ -4,5 +4,9 @@
     <h3><%= link_to gig.title, gig_path(gig) %></h3>
 <% end %>
 
+<% if current_user.contractor == true %>
+
 <p><%= link_to "New Gig", new_gig_path %></p>
+
+<% end %>
    

@@ -1,6 +1,7 @@
 class Gig < ApplicationRecord
     has_many :instruments
     has_many :users, through: :instruments
+    
 
     def instruments_attributes=(instrument_attributes)
         instrument_attributes.values.each do |instrument_attribute|
