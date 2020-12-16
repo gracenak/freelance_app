@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_234724) do
+ActiveRecord::Schema.define(version: 2020_12_15_203434) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,20 +33,20 @@ ActiveRecord::Schema.define(version: 2020_12_14_234724) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "gig_instruments", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.integer "gig_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "gigs", force: :cascade do |t|
     t.string "title"
     t.datetime "datetime"
     t.string "description"
     t.decimal "payment"
     t.integer "user_id"
-    t.integer "union_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "unions", force: :cascade do |t|
-    t.string "name"
-    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2020_12_14_234724) do
     t.string "bio"
     t.boolean "contractor", default: false
     t.string "password_digest"
-    t.integer "union_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

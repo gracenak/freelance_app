@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UnionTest < ActiveSupport::TestCase
+class GigInstrumentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

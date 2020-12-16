@@ -1,0 +1,6 @@
+<h1>Welcome, <%= @user.first_name %>!</h1>
+<% if @user.contractor == true %>
+    <h3>CONTRACTOR</h3>
+<% end %>
+
+<p><%= button_to "Edit Profile", edit_user_path(@user) %></p>

@@ -1,4 +1,4 @@
 class Gig < ApplicationRecord
-    belongs_to :user
-    belongs_to :union
+    has_many :gig_instruments
+    has_many :users, through: :gig_instruments
 end
