@@ -29,7 +29,7 @@ class GigsController < ApplicationController
 
     def update
         @gig = Gig.find(params[:id])
-        @gig.update
+        @gig.update(gig_params)
         redirect_to gig_path(@gig)
     end
 
