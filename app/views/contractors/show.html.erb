@@ -1,0 +1,12 @@
+<h1><%= @contractor.full_name %></h1>
+
+<h3>== CONTRACTOR == </h3>
+
+
+
+<li><%= @contractor.email %>
+
+<h3>== YOUR LIST OF POSTED GIGS == </h3>
+
+<p><%= link_to "New Gig Form", new_gig_path(@contractor.gigs) %></p>
+

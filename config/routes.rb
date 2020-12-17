@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :gigs
+  resources :contractors
 
   patch 'users/:id' => 'users#update'
 

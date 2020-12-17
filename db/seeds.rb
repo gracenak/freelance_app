@@ -7,9 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 violin = Instrument.create(name: "violin", user_id: 2, gig_id: 1)
-viola = Instrument.create(name: "viola", user_id: 2, gig_id: 2) 
-cello = Instrument.create(name: "cello", user_id: 2, gig_id: 4)
-trumpet = Instrument.create(name: "trumpet", user_id: 1, gig_id: 3)
+viola = Instrument.create(name: "viola", user_id: 2, gig_id: 1) 
+cello = Instrument.create(name: "cello", user_id: 2, gig_id: 1)
+
+
+
+
+
+
 
 
 
