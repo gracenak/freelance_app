@@ -20,7 +20,7 @@
 
   <p> Or create new Instrument: </p>
   <div>
-    <%=f.fields_for :instrument do |i| %>
+    <%=f.fields_for :instruments, @gig.instruments.build do |i| %>
       <%= i.label :name %>
       <%= i.text_field :name %>
     <% end %>
