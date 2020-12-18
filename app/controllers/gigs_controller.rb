@@ -1,4 +1,5 @@
 class GigsController < ApplicationController
+    before_action :redirect_if_unauthorized
 
     def index
         @gigs = Gig.all
@@ -9,19 +10,22 @@ class GigsController < ApplicationController
     end
 
     def new
-        @gig = Gig.new
-        @gig.instruments.build
-        @gig.users.build
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @gig = @user.gigs.build
+          else
+            @gig = Gig.new
+        end
     end
 
     def create
-        @gig = Gig.new(gig_params)
+        # binding.pry
+        @gig = current_user.gigs.build(gig_params)
         if @gig.save
-            redirect_to gig_path(@gig)
+          redirect_to gig_path(@gig)
         else
-            render :new
+          render :new
         end
-    end
+      end
 
     def edit
         @gig = Gig.find(params[:id])
@@ -33,10 +37,15 @@ class GigsController < ApplicationController
         redirect_to gig_path(@gig)
     end
 
+    def destroy
+        self.find(params[:id]).destroy
+        redirect_to user_path(current_user)
+      end
+
     private
 
     def gig_params
-        params.require(:gig).permit(:title, :datetime, :description, :payment, instrument_ids: [], instruments_attributes: [:name])
+        params.require(:gig).permit(:title, :datetime, :description, :payment, instruments_attributes: [:name])
     end
 
 end

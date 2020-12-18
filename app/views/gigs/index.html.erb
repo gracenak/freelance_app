@@ -4,10 +4,12 @@
     <h3><%= link_to gig.title, gig_path(gig) %></h3>
 <% end %>
 
+<br><br>
+
 <p><%= link_to "Back to Your Profile Page", user_path(current_user) %>
 
 <% if current_user.contractor == true %>
 
-<p><%= link_to "New Gig", new_gig_path %></p>
+<p><%= link_to "New Gig", new_user_gig_path(current_user) %></p>
 
 <% end %>

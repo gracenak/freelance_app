@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-    has_many :instruments
-    has_many :gigs, through: :instruments
+   
+    has_many :listings
+    has_many :posted_gigs, through: :listings, source: :posted_gigs
+    has_many :gigs
     has_secure_password
 
     def full_name

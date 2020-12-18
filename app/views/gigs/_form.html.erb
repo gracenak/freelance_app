@@ -1,4 +1,5 @@
 <%= form_for @gig do |f| %>
+
     <p><%= f.label :title %>
     <%= f.text_field :title %></p>
 
@@ -11,12 +12,18 @@
     <p><%= f.label :payment %>
     $<%= f.text_field :payment %></p>
 
+    <p>Instruments required: </p>
+    <p><%= f.label "Select Existing Instrument"%>
+ 
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: "Select Instrument" %>
 
-  <%= f.collection_check_boxes :instrument_ids, Instrument.all, :id, :name %><br>
+  </div>
 
-    <%= f.label "Create New Instrument"%>
-    <%= f.fields_for :instruments, @gig.instruments.build do |instruments_fields| %>
-    <%= instruments_fields.text_field :name %><br>
+  <p> Or create new Instrument: </p>
+  <div>
+    <%=f.fields_for :instrument do |i| %>
+      <%= i.label :name %>
+      <%= i.text_field :name %>
     <% end %>
 
     <%= f.submit %>
