@@ -2,10 +2,10 @@
 <li><%= @gig.datetime %>
 <li><%= @gig.description %>
 <li>$<%= @gig.payment %>
-<%# <% @gig.instruments.each do |instrument| %> 
-<%# <li><%= instrument.name %> 
-<%# <% end %> 
-
+<h4>Instruments needed: </h4>
+<% @gig.instruments.each do |instrument|%>
+<li><%= instrument.name %></li>
+<% end %>
 <h4>Contact for more info: 
 
 <%= link_to @gig.user.full_name, user_path(@gig.user) %></h4>

@@ -14,10 +14,9 @@
 
     <p>Instruments required: </p>
     <p><%= f.label "Select Existing Instrument"%>
- 
-    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: "Select Instrument" %>
+      
+    <%= f.collection_check_boxes :instrument_ids, Instrument.all, :id, :name %><br>
 
-  </div>
 
   <p> Or create new Instrument: </p>
   <div>

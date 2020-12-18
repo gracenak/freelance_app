@@ -15,10 +15,11 @@ class GigsController < ApplicationController
           else
             @gig = Gig.new
         end
+        @gig.instruments.build
     end
 
     def create
-        # binding.pry
+        binding.pry
         @gig = current_user.gigs.build(gig_params)
         if @gig.save
           redirect_to gig_path(@gig)
@@ -45,7 +46,7 @@ class GigsController < ApplicationController
     private
 
     def gig_params
-        params.require(:gig).permit(:title, :datetime, :description, :payment, instruments_attributes: [:name])
+        params.require(:gig).permit(:title, :datetime, :description, :payment, instrument_ids: [], instruments_attributes: [:name])
     end
 
 end
