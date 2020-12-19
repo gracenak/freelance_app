@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to '/' if !@user
 
+
   end
 
   def edit

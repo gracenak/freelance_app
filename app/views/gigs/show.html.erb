@@ -11,8 +11,22 @@
 <%= link_to @gig.user.full_name, user_path(@gig.user) %></h4>
 <ul>
 <li><%= @gig.user.email %>
-
 </ul>
+
+<% if !current_user.contractor %>
+
+<h3>Submit Application </h3>
+<%= form_for @request do |f| %>
+<%= f.hidden_field :gig_id, value: @gig.id %>
+
+<%= f.label "I would like to apply for this gig"%>
+<%= f.check_box :submit %>
+
+<p><%= f.collection_select :user_id, User.all, :id, :email, prompt:  "Choose your email" %>
+<%= f.submit "Submit Application" %>
+<% end %>
+
+<% end %>
 
 
 <% if current_user.contractor  %>

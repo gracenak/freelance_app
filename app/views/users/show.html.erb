@@ -22,8 +22,13 @@
 
 <br><br>
 
+<h3>Gig Applications Submitted: </h3>
+<% @user.requests.each do |request| %>
+<li><%= request.gig_id %>
+<% end %>
+
 <% if @user.contractor == true && current_user == @user %>
-<h3>== YOUR LIST OF POSTED GIGS == </h3>
+<h3>== YOU HAVE <%=%> LIST OF POSTED GIGS == </h3>
 <% @user.gigs.each do |gig| %>
 <li><%= link_to gig.title, user_gig_path(current_user, gig) %>
 <% end %>
@@ -33,6 +38,10 @@
 <% end %>
 
 <br>
+
+
+
+
 
 
 

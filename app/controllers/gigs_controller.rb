@@ -7,6 +7,12 @@ class GigsController < ApplicationController
 
     def show
         @gig = Gig.find(params[:id])
+        @request = Request.new
+        if @request.submit = false
+          redirect_to gig_path(@gig)
+        else
+          redirect_to request_path(@request)
+        end
     end
 
     def new
@@ -19,7 +25,6 @@ class GigsController < ApplicationController
     end
 
     def create
-        binding.pry
         @gig = current_user.gigs.build(gig_params)
         if @gig.save
           redirect_to gig_path(@gig)

@@ -1,10 +1,13 @@
 class User < ApplicationRecord
    
-    has_many :listings
-    has_many :posted_gigs, through: :listings, source: :posted_gigs
+    has_many :requests
+    has_many :posted_gigs, through: :requests, source: :posted_gigs # investigate
     
     has_many :gigs
+
     validates :first_name, :last_name, :email, presence: true
+    validates :email, uniqueness: true
+
     has_secure_password #validations for presence of password
 
 
