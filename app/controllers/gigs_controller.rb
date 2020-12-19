@@ -9,9 +9,8 @@ class GigsController < ApplicationController
         @gig = Gig.find(params[:id])
         @request = Request.new
         if @request.submit = false
-          redirect_to gig_path(@gig)
-        else
-          redirect_to request_path(@request)
+          flash[:error] = "Application submission failed. #{@request.errors.full_messages.to_sentence}"
+          redirect_to gig_path(@request)
         end
     end
 
@@ -27,8 +26,10 @@ class GigsController < ApplicationController
     def create
         @gig = current_user.gigs.build(gig_params)
         if @gig.save
+          flash[:success] = "Your gig has been created successfully!"
           redirect_to gig_path(@gig)
         else
+          flash[:warning] = "#{@gig.errors.full_messages.to_sentence}."
           render :new
         end
       end
@@ -43,15 +44,28 @@ class GigsController < ApplicationController
         redirect_to gig_path(@gig)
     end
 
-    def destroy
-        self.find(params[:id]).destroy
+    def delete
+      @gig = Gig.find(params[:id])
+      if authorized_to_modify?(@gig)
+        @gig.destroy
+        flash[:delete] = "Your gig has been deleted."
         redirect_to user_path(current_user)
+      else
+        redirect_to gig_path(@gig)
       end
+    end
 
     private
 
     def gig_params
-        params.require(:gig).permit(:title, :datetime, :description, :payment, instrument_ids: [], instruments_attributes: [:name])
+        params.require(:gig).permit(
+          :title, 
+          :datetime, 
+          :description, 
+          :payment, 
+          instrument_ids: [], 
+          instruments_attributes: [:name]
+        )
     end
 
 end

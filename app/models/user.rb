@@ -1,7 +1,7 @@
 class User < ApplicationRecord
    
     has_many :requests
-    has_many :posted_gigs, through: :requests, source: :posted_gigs # investigate
+    has_many :posted_gigs, through: :requests, source: :gigs # investigate
     
     has_many :gigs
 

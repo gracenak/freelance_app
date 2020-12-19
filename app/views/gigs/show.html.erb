@@ -1,3 +1,8 @@
+<% if flash[:delete] %>
+<h3 style="color:DarkOliveGreen;"> <%= flash[:message] %></h3>
+<% end %>
+
+<%= flash[:error] %>
 <h1><%= @gig.title %></h1>
 <li><%= @gig.datetime %>
 <li><%= @gig.description %>
@@ -32,7 +37,7 @@
 <% if current_user.contractor  %>
 
 <p><%= link_to "Edit Gig", edit_user_gig_path(current_user, @gig) %>
-
+<p><%= button_to "Delete", @gig, :method => :delete %>
 <% end %>
 
 <p><%= link_to "Check out more Gigs", gigs_path %></p>

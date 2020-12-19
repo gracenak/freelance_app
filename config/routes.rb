@@ -3,12 +3,9 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  resources :users, only: [:new, :create]
+  resources :users
+  resources :gigs
   resources :requests
-
-  resources :gigs, only: [:show] do 
-    resources :requests, only: [:show]
-  end
 
   resources :users, only: [:show] do
     resources :gigs, only: [:new, :create, :edit, :update]
@@ -16,14 +13,20 @@ Rails.application.routes.draw do
 
 
 
-  resources :users
-  resources :gigs
+  # resources :gigs, only: [:show] do 
+  #   resources :requests, only: [:show]
+  # end
+
+
+
+
+
 
 
 
 
   
-  
+  delete 'gigs/:id' => 'gigs#delete'
 
   patch 'users/:id' => 'users#update'
 

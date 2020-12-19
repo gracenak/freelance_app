@@ -1,2 +1,9 @@
+<% if flash[:warning] %>
+<h3 style="color:DarkRed;"><%= flash[:warning] %></h3>
+<% end %>
+
+
+
+
 <h1>New Gig Form</h1>
 <%= render 'form' %>

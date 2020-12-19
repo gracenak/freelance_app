@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     def redirect_if_unauthorized
         redirect_to '/' if !logged_in?
     end
+
+    def authorized_to_modify?(gig)
+        gig.user == current_user
+      end
 end

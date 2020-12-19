@@ -24,8 +24,6 @@ class UsersController < ApplicationController
     # binding.pry
     @user = User.find(params[:id])
     redirect_to '/' if !@user
-
-
   end
 
   def edit

@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by_omniauth(auth)
     if user.valid?
       session[:user_id] = user.id
-      redirect_to user_path(user)
-    else
-      flash[:error] = user.errors.full_messages.join(", ")
-      redirect_to root_path
+      redirect_to user_path(user)  
+      else
+        flash[:error] = user.errors.full_messages.join(", ")
+        redirect_to root_path
     end
   end
 
