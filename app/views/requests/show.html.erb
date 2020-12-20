@@ -1,4 +1,4 @@
-<h1>Thank you <%= @request.user.first_name %>! Your application has been submitted for the <%= @request.gig.title %>. </h1>
+<h1>Submission sent to <%= @request.user.full_name %> for the <%= @request.gig.title %>. </h1>
 
 <p><%= link_to "Check out more Gigs", gigs_path %></p>
 <p><%= link_to "Go Back to Your Page", user_path(current_user) %>

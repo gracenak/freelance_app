@@ -7,9 +7,13 @@ Rails.application.routes.draw do
   resources :gigs
   resources :requests
 
-  resources :users, only: [:show] do
-    resources :gigs, only: [:new, :create, :edit, :update]
+  resources :users, only: [:show, :index] do
+    resources :gigs, only: [:show, :new, :create, :edit, :update]
   end
+
+  # get '/users/musicians', to: 'users#musicians', as: 'musicians'
+
+  # get '/users/contractors', to: 'users#contractors', as: 'contractors'
 
 
 

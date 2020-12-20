@@ -1,8 +1,7 @@
-<% if flash[:delete] %>
-<h3 style="color:DarkOliveGreen;"> <%= flash[:message] %></h3>
-<% end %>
+<h3 style="color:DarkOliveGreen;"><%= flash[:success] %></h3>
+<h3 style="color:DarkRed;"><%= flash[:error] %></h3>
 
-<%= flash[:error] %>
+
 <h1><%= @gig.title %></h1>
 <li><%= @gig.datetime %>
 <li><%= @gig.description %>
@@ -22,14 +21,16 @@
 
 <h3>Submit Application </h3>
 <%= form_for @request do |f| %>
-<%= f.hidden_field :gig_id, value: @gig.id %>
+    <%= f.hidden_field :gig_id, value: @gig.id %>
 
-<%= f.label "I would like to apply for this gig"%>
-<%= f.check_box :submit %>
+    <%= f.label "I would like to apply for this gig"%>
+    <%= f.check_box :application %>
 
-<p><%= f.collection_select :user_id, User.all, :id, :email, prompt:  "Choose your email" %>
-<%= f.submit "Submit Application" %>
-<% end %>
+    <%= @gig.user.full_name %>
+
+    <p><%= f.collection_select :user_id, User.all, :id, :email, include_blank:  "Choose your email" %>
+    <%= f.submit "Submit Application" %>
+    <% end %>
 
 <% end %>
 
@@ -37,7 +38,7 @@
 <% if current_user.contractor  %>
 
 <p><%= link_to "Edit Gig", edit_user_gig_path(current_user, @gig) %>
-<p><%= button_to "Delete", @gig, :method => :delete %>
+<p><%= button_to "Delete", @gig, method: :delete %>
 <% end %>
 
 <p><%= link_to "Check out more Gigs", gigs_path %></p>

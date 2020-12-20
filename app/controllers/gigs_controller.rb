@@ -1,17 +1,13 @@
 class GigsController < ApplicationController
-    before_action :redirect_if_unauthorized
+  before_action :require_login
 
     def index
         @gigs = Gig.all
     end
 
     def show
-        @gig = Gig.find(params[:id])
-        @request = Request.new
-        if @request.submit = false
-          flash[:error] = "Application submission failed. #{@request.errors.full_messages.to_sentence}"
-          redirect_to gig_path(@request)
-        end
+      @gig = Gig.find(params[:id])
+      @request = Request.new
     end
 
     def new
@@ -40,20 +36,22 @@ class GigsController < ApplicationController
 
     def update
         @gig = Gig.find(params[:id])
-        @gig.update(gig_params)
-        redirect_to gig_path(@gig)
+        if authorized_to_modify?(@gig)
+          @gig.update(gig_params)
+          redirect_to gig_path(@gig)
+        end
     end
 
-    def delete
+    def destroy
       @gig = Gig.find(params[:id])
-      if authorized_to_modify?(@gig)
-        @gig.destroy
-        flash[:delete] = "Your gig has been deleted."
+      if @gig.destroy
+        flash[:delete] = "Your gig has been deleted successfully."
         redirect_to user_path(current_user)
       else
         redirect_to gig_path(@gig)
       end
     end
+
 
     private
 

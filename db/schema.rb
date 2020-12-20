@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_005714) do
   create_table "requests", force: :cascade do |t|
     t.integer "user_id"
     t.integer "gig_id"
-    t.boolean "submit", default: false
+    t.boolean "application"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login
 
   def index
     @users = User.all
@@ -15,13 +16,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/login'
     else
+      flash[:message] = "#{@user.errors.full_messages.to_sentence}."
       render :new
     end
 
   end
 
   def show
-    # binding.pry
     @user = User.find(params[:id])
     redirect_to '/' if !@user
   end
