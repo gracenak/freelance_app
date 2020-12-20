@@ -1,14 +1,16 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, only: [:omniauth, :new, :create]
 
 
   def omniauth #logs users in with omniauth
     user = User.find_or_create_by_omniauth(auth)
+
     if user.valid?
       session[:user_id] = user.id
       redirect_to user_path(user)  
-      else
-        flash[:error] = user.errors.full_messages.join(", ")
-        redirect_to root_path
+    else
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to root_path
     end
   end
 
@@ -23,9 +25,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      flash[:message] = "Invalid login credentials."
       render :new
     end
-
   end
 
   def destroy

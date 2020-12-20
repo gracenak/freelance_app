@@ -4,13 +4,13 @@
     <h1>Welcome, <%= current_user.first_name %>!</h1>
 <% end %>
 
-<% if @user.contractor == true && current_user == @user %>
+<% if @user.contractor && @user == current_user %>
     <h3>== CONTRACTOR STATUS ==</h3>
 <% end %>
 
-<br>
+            <br>
 
-<% if current_user != @user %>
+<% if @user != current_user %>
     <h2>== Meet Your Fellow Musician ==</h2>
 <% end %>
 
@@ -22,22 +22,18 @@
 <h4>Contact: </h4>
 <p><%= @user.email %></p>
 
-
-<% if current_user == @user %>
+<% if @user == current_user %>
     <p><%= link_to "Update Your Profile", edit_user_path(current_user)%>
 <% end %>
-
 
 <br><br>
 
 <% if @user.contractor %>
     <h3>Gig Applications Received: </h3>
-    <% @user.requests.each do |request| %>
-    <li><%= request.user_id %>
-    <% end %>
-<% end %>
+    <% @requests.each do |request| %>
+    <li><%= request.user_name %> for <%= request.gig_name%></li>
+    <% end%>
 
-<% if @user.contractor == true && current_user == @user %>
     <h3>== LIST OF POSTED GIGS == </h3>
     <% @user.gigs.each do |gig| %>
     <li><%= link_to gig.title, user_gig_path(@user, gig) %>
@@ -45,8 +41,3 @@
                     <br><br><br><br>
     <%= link_to "New Gig Form", new_user_gig_path(current_user) %>
 <% end %>
-
-<br>
-
-<p><%= link_to "Check out Gigs", gigs_path %>
-<p><%= link_to "Check out Fellow Musicians", users_path %>

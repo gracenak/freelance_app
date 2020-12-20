@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?
+    before_action :require_login
+    helper_method :current_user, :logged_in?, :gig_applicant
 
     private
 
@@ -10,10 +11,6 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user
     end
-
-    def authorized_to_modify?(gig)
-        gig.user.contractor == current_user
-      end
 
     def require_login
         redirect_to root_path unless logged_in?

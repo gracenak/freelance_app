@@ -8,6 +8,8 @@ class User < ApplicationRecord
     validates :first_name, :last_name, :email, presence: true
     validates :email, uniqueness: true
 
+    scope :contractor, -> { where(contractor: 'true') }
+
     has_secure_password #validations for presence of password
 
 
@@ -24,7 +26,13 @@ class User < ApplicationRecord
         self.first_name + " " + self.last_name
     end
 
-    def musicians
-        self.contractor = false
+    def authorized_contractor
+        self.contractor = true && current_user = self
     end
+
+
+
+
+
+
 end

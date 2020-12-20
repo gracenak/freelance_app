@@ -36,10 +36,12 @@ class GigsController < ApplicationController
 
     def update
         @gig = Gig.find(params[:id])
-        if authorized_to_modify?(@gig)
-          @gig.update(gig_params)
-          redirect_to gig_path(@gig)
-        end
+        @gig.update(gig_params)
+        redirect_to gig_path(@gig)
+    end
+
+    def most_recent
+      @gigs = Gig.most_recent
     end
 
     def destroy
@@ -65,5 +67,4 @@ class GigsController < ApplicationController
           instruments_attributes: [:name]
         )
     end
-
 end

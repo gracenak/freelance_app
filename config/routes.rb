@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
+  get '/gigs/most_recent', to: 'gigs#most_recent'
+
+  get '/users/contractors', to: 'users#contractors'
+
   resources :users
   resources :gigs
   resources :requests
@@ -10,6 +14,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index] do
     resources :gigs, only: [:show, :new, :create, :edit, :update]
   end
+
+
+
+
 
   # get '/users/musicians', to: 'users#musicians', as: 'musicians'
 

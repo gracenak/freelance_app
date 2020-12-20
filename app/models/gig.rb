@@ -11,6 +11,7 @@ class Gig < ApplicationRecord
     validates :title, :datetime, :description, :payment, presence: true
     validates :payment, numericality: {greater_than_or_equal_to: 0}
 
+
     def instruments_attributes=(instrument_attributes)
         instrument_attributes.values.each do |instrument_attribute| 
           if instrument_attribute[:name].present?
@@ -22,4 +23,8 @@ class Gig < ApplicationRecord
           end
         end
       end
+
+    def self.most_recent
+        all.order('datetime desc')
+    end
 end

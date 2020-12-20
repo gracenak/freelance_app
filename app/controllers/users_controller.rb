@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create]
 
   def index
     @users = User.all
@@ -24,19 +24,25 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    redirect_to '/' if !@user
+    # @request = Request.find_by(gig_id: @user.gigs)
+    @requests = Request.where(gig_id: @user.gigs)
+    # redirect_to '/' if !@user
   end
 
   def edit
     @user = User.find(params[:id])
-
   end
 
 
   def update
     @user = User.find(params[:id])
+    redirect_to '/' unless @user
     @user.update(user_params)
     redirect_to user_path(@user)
+  end
+
+  def contractors
+    @contractors = User.contractor
   end
 
   private

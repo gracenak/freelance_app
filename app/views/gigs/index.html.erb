@@ -6,8 +6,6 @@
 
 <br><br>
 
-<p><%= link_to "Back to Your Profile Page", user_path(current_user) %>
-
 <% if current_user.contractor == true %>
 
 <p><%= link_to "New Gig", new_user_gig_path(current_user) %></p>

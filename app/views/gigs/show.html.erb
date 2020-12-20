@@ -26,7 +26,7 @@
     <%= f.label "I would like to apply for this gig"%>
     <%= f.check_box :application %>
 
-    <%= @gig.user.full_name %>
+    <%# <%= @gig.user.full_name %> 
 
     <p><%= f.collection_select :user_id, User.all, :id, :email, include_blank:  "Choose your email" %>
     <%= f.submit "Submit Application" %>
@@ -42,5 +42,5 @@
 <% end %>
 
 <p><%= link_to "Check out more Gigs", gigs_path %></p>
-<p><%= link_to "Go Back to Your Page", user_path(current_user) %>
+
 
