@@ -22,4 +22,9 @@ class Request < ApplicationRecord
     def gig_name=(title)
         gig = Gig.find_or_create_by(title: title)
     end
+
+    def authorized_user
+        @user = User.find(params[:id])
+        @user != current_user
+    end
 end

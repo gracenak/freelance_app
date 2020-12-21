@@ -8,41 +8,21 @@ Rails.application.routes.draw do
   get '/users/contractors', to: 'users#contractors'
 
   resources :users
-  resources :gigs
+  resources :gigs, only: [:index, :show]
+  resources :gigs do
+    resources :requests
+  end
+
+  # scope '/musician' do
+  #   resources :requests, only: [:show]
+  # end
   resources :requests
 
   resources :users, only: [:show, :index] do
     resources :gigs, only: [:show, :new, :create, :edit, :update]
   end
-
-
-
-
-
-  # get '/users/musicians', to: 'users#musicians', as: 'musicians'
-
-  # get '/users/contractors', to: 'users#contractors', as: 'contractors'
-
-
-
-  # resources :gigs, only: [:show] do 
-  #   resources :requests, only: [:show]
-  # end
-
-
-
-
-
-
-
-
-
-  
+ 
   delete 'gigs/:id' => 'gigs#delete'
-
-  patch 'users/:id' => 'users#update'
-
-
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -52,5 +32,3 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy' 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
-
-

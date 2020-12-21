@@ -1,7 +1,6 @@
 <h3 style="color:DarkOliveGreen;"><%= flash[:success] %></h3>
 <h3 style="color:DarkRed;"><%= flash[:error] %></h3>
 
-
 <h1><%= @gig.title %></h1>
 <li><%= @gig.datetime %>
 <li><%= @gig.description %>
@@ -10,6 +9,7 @@
 <% @gig.instruments.each do |instrument|%>
 <li><%= instrument.name %></li>
 <% end %>
+
 <h4>Contact for more info: 
 
 <%= link_to @gig.user.full_name, user_path(@gig.user) %></h4>
@@ -17,7 +17,7 @@
 <li><%= @gig.user.email %>
 </ul>
 
-<% if !current_user.contractor %>
+<% if !current_user.contractor  %>
 
 <h3>Submit Application </h3>
 <%= form_for @request do |f| %>
@@ -28,7 +28,10 @@
 
     <%# <%= @gig.user.full_name %> 
 
-    <p><%= f.collection_select :user_id, User.all, :id, :email, include_blank:  "Choose your email" %>
+    <p><%= f.collection_select :user_id, User.all, :id, :email, prompt: 'Choose your email' %>
+
+
+
     <%= f.submit "Submit Application" %>
     <% end %>
 

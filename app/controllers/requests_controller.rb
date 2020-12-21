@@ -4,14 +4,23 @@ class RequestsController < ApplicationController
     def show
         @request = Request.find(params[:id])
     end
-    
+
+    def new
+        if @gig = Gig.find_by(id: params[:gig_id])
+            @request = @gig.requests.build
+        else
+            @request = Request.new
+        end
+    end
+
     def create
-        request = Request.create(request_params)
-        if request.valid?
-            redirect_to request_path(request)
+        gig = Gig.find_by(id: params[:gig_id])
+        @request = current_user.requests.build(request_params)
+        if @request.save
+            redirect_to request_path(@request.gig)
         else
             flash[:error] = "Application submission failed. #{request.errors.full_messages.to_sentence}"
-            redirect_to gig_path(request.gig)
+            redirect_to gig_path(@request.gig)
         end
     end
 

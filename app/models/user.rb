@@ -30,9 +30,4 @@ class User < ApplicationRecord
         self.contractor = true && current_user = self
     end
 
-
-
-
-
-
 end

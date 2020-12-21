@@ -1,5 +1,28 @@
 <h1>Edit Profile</h1>
-<%= render 'user' %>
+
+<%= form_for @user do |f| %>
+
+    <p><%= f.label :first_name %>
+    <%= f.text_field :first_name %></p>
+
+    <p><%= f.label :last_name %>
+    <%= f.text_field :last_name %></p>
+
+    <p><%= f.label :email %>
+    <%= f.email_field :email %></p>   
+    
+    <p><%= f.label :instrument %>
+    <%= f.text_field :instrument %></p>
+
+    <p><%= f.label :bio %>
+    <%= f.text_area :bio %></p>
+
+    <p><%= f.label "Check box if you are a contractor" %>
+    <%= f.check_box :contractor %></p>
+
+    <%= f.submit %>
+<% end %>
+
 
 
 
