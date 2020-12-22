@@ -1,5 +1,6 @@
 class GigsController < ApplicationController
   before_action :require_login
+  before_action :set_gig, only: [:show, :edit, :update, :destroy]
 
     def index
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -10,7 +11,6 @@ class GigsController < ApplicationController
     end
 
     def show
-      @gig = Gig.find(params[:id])
       @request = Request.new
     end
 
@@ -35,13 +35,11 @@ class GigsController < ApplicationController
       end
 
     def edit
-        @gig = Gig.find(params[:id])
     end
 
     def update
-        @gig = Gig.find(params[:id])
-        @gig.update(gig_params)
-        redirect_to gig_path(@gig)
+      @gig.update(gig_params) 
+      redirect_to gig_path(@gig) 
     end
 
     def most_recent
@@ -49,7 +47,6 @@ class GigsController < ApplicationController
     end
 
     def destroy
-      @gig = Gig.find(params[:id])
       if @gig.destroy
         flash[:delete] = "Your gig has been deleted successfully."
         redirect_to user_path(current_user)
@@ -70,5 +67,13 @@ class GigsController < ApplicationController
           instrument_ids: [], 
           instruments_attributes: [:name]
         )
+    end
+
+    def set_gig
+      @gig = Gig.find(params[:id])
+    end
+
+    def authorized_to_modify(gig)
+      
     end
 end

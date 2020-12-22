@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @users = User.all
@@ -19,23 +20,17 @@ class UsersController < ApplicationController
       flash[:message] = "#{@user.errors.full_messages.to_sentence}."
       render :new
     end
-
   end
 
   def show
-    @user = User.find(params[:id])
-    # @request = Request.find_by(gig_id: @user.gigs)
     @requests = Request.where(gig_id: @user.gigs)
-    # redirect_to '/' if !@user
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
 
   def update
-    @user = User.find(params[:id])
     redirect_to '/' unless @user
     if @user.update(user_params)
       redirect_to user_path(@user)
@@ -61,5 +56,9 @@ class UsersController < ApplicationController
       :contractor,
       :password
     )
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/users/contractors', to: 'users#contractors'
 
   resources :users
-  resources :gigs, only: [:index, :show, :create]
+  resources :gigs, only: [:index, :show, :create, :update]
 
   # scope '/musician' do
   #   resources :requests, only: [:show]
