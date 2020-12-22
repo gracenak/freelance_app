@@ -2,7 +2,7 @@
 <h3 style="color:DarkRed;"><%= flash[:error] %></h3>
 
 <h1><%= @gig.title %></h1>
-<li><%= @gig.datetime %>
+<li><%= @gig.datetime.strftime("%b %e %Y, %l:%M %p") %>
 <li><%= @gig.description %>
 <li>$<%= @gig.payment %>
 <h4>Instruments needed: </h4>
@@ -27,15 +27,15 @@
     <%= f.check_box :application %>
 
     <%# <%= @gig.user.full_name %> 
-
-    <p><%= f.collection_select :user_id, User.all, :id, :email, prompt: 'Choose your email' %>
-
-
+<% if !current_user%>
+    <p><%= f.collection_select :user_id, User.all, :id, :email, prompt: current_user.email %>
+    <% end %>
 
     <%= f.submit "Submit Application" %>
     <% end %>
 
 <% end %>
+
 
 
 <% if current_user.contractor  %>

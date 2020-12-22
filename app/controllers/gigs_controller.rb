@@ -2,7 +2,11 @@ class GigsController < ApplicationController
   before_action :require_login
 
     def index
+      if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        @gigs = @user.gigs
+      else
         @gigs = Gig.all
+      end
     end
 
     def show

@@ -8,7 +8,7 @@ class Gig < ApplicationRecord
     has_many :requests
     has_many :users, through: :requests
 
-    validates :title, :datetime, :description, :payment, presence: true
+    validates :title, :datetime, :description, presence: true
     validates :payment, numericality: {greater_than_or_equal_to: 0}
 
 
@@ -25,6 +25,6 @@ class Gig < ApplicationRecord
       end
 
     def self.most_recent
-        all.order('datetime desc')
+        all.order('datetime asc')
     end
 end

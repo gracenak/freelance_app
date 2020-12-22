@@ -1,7 +1,8 @@
 class Request < ApplicationRecord
     belongs_to :user
     belongs_to :gig
-    validates :application, acceptance: { message: 'box must be checked to apply.' }
+    validates :application, acceptance: { message: 'box must be checked to apply' }
+    validates :gig, :uniqueness => { scope: :user_id, message: 'has already received your application.'}  
 
     accepts_nested_attributes_for :user, reject_if: proc { |attributes| attributes['email'].blank?}
 
@@ -11,6 +12,7 @@ class Request < ApplicationRecord
     end
     
     def user_name=(name)
+        # binding.pry
         user = User.find_or_create_by(full_name: name)
         self.user = user
     end

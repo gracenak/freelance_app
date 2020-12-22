@@ -1,5 +1,9 @@
 <h1>Gigs</h1>
 
+<% if current_user.contractor == true %>
+    <h3>== LIST OF POSTED GIGS == </h3>
+<% end %>
+
 <% @gigs.each do |gig| %>
     <h3><%= link_to gig.title, gig_path(gig) %></h3>
 <% end %>
@@ -11,3 +15,8 @@
 <p><%= link_to "New Gig", new_user_gig_path(current_user) %></p>
 
 <% end %>
+
+<h3>Need a gig ASAP? Check out upcoming gigs! </h3>
+<p><%= link_to "Upcoming Gigs", gigs_most_recent_path %></p>
+
+<p><%= link_to "Contractors", users_contractors_path %>

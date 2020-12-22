@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :gigs
 
     validates :first_name, :last_name, :email, presence: true
+    # validates :instrument, :bio, presence: true, on: :update
     validates :email, uniqueness: true
 
     scope :contractor, -> { where(contractor: 'true') }

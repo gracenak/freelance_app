@@ -37,8 +37,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     redirect_to '/' unless @user
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      flash[:update] = "#{@user.errors.full_messages.to_sentence}"
+      render :edit
+    end
   end
 
   def contractors
