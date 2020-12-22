@@ -1,49 +1,41 @@
 <h3 style="color:DarkOliveGreen;"><%= flash[:success] %></h3>
 <h3 style="color:DarkRed;"><%= flash[:error] %></h3>
+<h3 style="color:DarkOliveGreen;"><%= flash[:update] %></h3>
 
 <h1><%= @gig.title %></h1>
 <li><%= @gig.datetime.strftime("%b %e %Y, %l:%M %p") %>
 <li><%= @gig.description %>
 <li>$<%= @gig.payment %>
-<h4>Instruments needed: </h4>
-<% @gig.instruments.each do |instrument|%>
-<li><%= instrument.name %></li>
+
+<h3>Instruments needed: </h3>
+    <% @gig.instruments.each do |instrument|%>
+    <li><%= instrument.name %></li>
 <% end %>
 
 <h4>Contact for more info: 
-
 <%= link_to @gig.user.full_name, user_path(@gig.user) %></h4>
 <ul>
-<li><%= @gig.user.email %>
+    <li><%= @gig.user.email %>
 </ul>
 
 <% if !current_user.contractor  %>
-
 <h3>Submit Application </h3>
-<%= form_for @request do |f| %>
-    <%= f.hidden_field :gig_id, value: @gig.id %>
+    <%= form_for @request do |f| %>
+        <%= f.hidden_field :gig_id, value: @gig.id %>
 
-    <%= f.label "I would like to apply for this gig"%>
-    <%= f.check_box :application %>
+        <%= f.label "I would like to apply for this gig"%>
+        <%= f.check_box :application %>
 
-    <%# <%= @gig.user.full_name %> 
-<% if !current_user%>
-    <p><%= f.collection_select :user_id, User.all, :id, :email, prompt: current_user.email %>
+        <% if !current_user%>
+            <p><%= f.collection_select :user_id, User.all, :id, :email, prompt: current_user.email %>
+        <% end %>
+
+        <%= f.submit "Submit Application" %>
     <% end %>
-
-    <%= f.submit "Submit Application" %>
-    <% end %>
-
 <% end %>
 
-
-
-<% if current_user.contractor  %>
-
-<p><%= link_to "Edit Gig", edit_user_gig_path(current_user, @gig) %>
-<p><%= button_to "Delete", @gig, method: :delete %>
+<% if @gig.user == current_user  %>
+    <p><%= button_to "Edit Gig", edit_user_gig_path(current_user, @gig) %>
+    <p><%= button_to "Delete", @gig, method: :delete %>
 <% end %>
-
-<p><%= link_to "Check out more Gigs", gigs_path %></p>
-
 

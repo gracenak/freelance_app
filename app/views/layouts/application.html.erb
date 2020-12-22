@@ -17,12 +17,14 @@
         <a class="navbar-brand" href="<%= root_path %>"/>Home</a>
         <% if current_user %>
           <a class="navbar-brand" href="<%= user_path(current_user) %>"/><%= current_user.first_name %>'s Profile</a>
-          <%= link_to "Log Out", logout_path, class:"navbar-brand",method: :post %>        
+          <%= link_to "Log Out", logout_path, class:"navbar-brand",method: :post %> 
+          <a class="navbar-brand" href="<%= gigs_path %>"/>Check Out Gigs</a>
           <% else %>
             <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
         <% end %>
         <a class="navbar-brand" href="<%= login_path %>"/>Log In</a>
         <p><%= link_to "Log In with Google", '/auth/google_oauth2', class:"navbar-brand", method: :post %>
+        
 
 
 

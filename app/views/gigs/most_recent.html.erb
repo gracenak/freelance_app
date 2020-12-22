@@ -1,4 +1,3 @@
 <h1>Upcoming Gigs! </h1>
-<% @gigs.each do |gig| %>
-<li><%= link_to gig.title, gig_path(gig) %> on <%= gig.datetime.strftime("%b %e %Y, %l:%M %p") %>
-<% end %>
+
+<%= render partial: 'gigs', locals: {gigs: @gigs} %>

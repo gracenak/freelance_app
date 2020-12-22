@@ -1,12 +1,9 @@
 <h3 style="color:DarkOliveGreen;"> <%= flash[:delete] %></h3>
 
-<% if current_user %>
-    <h1>Welcome, <%= current_user.first_name %>!</h1>
-<% end %>
+<h1><%= welcome_header %></h1>
 
-<% if @user.contractor && @user == current_user %>
-    <h3>== CONTRACTOR STATUS ==</h3>
-<% end %>
+<h3><%= contractor_header %></h3>
+
 
             <br>
 

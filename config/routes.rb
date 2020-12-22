@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/users/contractors', to: 'users#contractors'
 
   resources :users
-  resources :gigs, only: [:index, :show, :create, :update]
+  resources :gigs, only: [:index, :show, :create, :update, :destroy]
+  
 
   # scope '/musician' do
   #   resources :requests, only: [:show]
@@ -19,9 +20,6 @@ Rails.application.routes.draw do
     resources :gigs, only: [:index, :show, :new, :create, :edit, :update]
   end
  
-
-  delete 'gigs/:id' => 'gigs#delete'
-
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 

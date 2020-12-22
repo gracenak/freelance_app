@@ -1,22 +1,16 @@
+<h3 style="color:DarkRed;"> <%= flash[:unauthorized] %></h3>
 <h1>Gigs</h1>
 
-<% if current_user.contractor == true %>
-    <h3>== LIST OF POSTED GIGS == </h3>
-<% end %>
+<h3><%= contractor_gigs_list%></h3>
 
-<% @gigs.each do |gig| %>
-    <h3><%= link_to gig.title, gig_path(gig) %></h3>
-<% end %>
+<%= render partial: 'gigs', locals: {gigs: @gigs} %>
 
 <br><br>
 
-<% if current_user.contractor == true %>
-
-<p><%= link_to "New Gig", new_user_gig_path(current_user) %></p>
-
+<% if current_user.contractor %>
+    <p><%= button_to "New Gig", new_user_gig_path(current_user), method: :get %></p>
 <% end %>
 
-<h3>Need a gig ASAP? Check out upcoming gigs! </h3>
-<p><%= link_to "Upcoming Gigs", gigs_most_recent_path %></p>
+<h3>Need a gig ASAP? Check out <%= link_to "Upcoming Gigs!", gigs_most_recent_path %> </h3>
 
-<p><%= link_to "Contractors", users_contractors_path %>
+<p><%= link_to "Meet Contractors", users_contractors_path %>

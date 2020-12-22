@@ -1,4 +1,3 @@
 <h1>List of Contractors </h1>
-<% @contractors.each do |contractor| %>
-<li><%= contractor.full_name %>
-<% end %>
+
+<%= render partial: "users", locals: { users: @contractors } %>
