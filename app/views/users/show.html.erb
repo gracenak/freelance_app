@@ -6,26 +6,24 @@
         
 <h2><%= meet_musicians %></h2>
 
-<h3><%= @user.full_name %></h3>
-<h4>Instrument: </h4>
-<p><%= @user.instrument %></p>
-<h4>Bio: </h4>
-<p><%= @user.bio %></p>
-<h4>Contact: </h4>
-<p><%= @user.email %></p>
+<%= render 'user_info' %>
 
-<% if authorized?(@user) %>
-    <p><%= button_to "Update Your Profile", edit_user_path(current_user), method: :get %>
-<% end %>
+<%= authorized_to_update_user %>
 
-<% if @user.contractor %>
+<% if authorized?(@user) && @user.contractor %>
     <h3>Gig Applications Received: </h3>
-    <% @requests.each do |request| %>
-    <li><%= request.user_name %> for <%= request.gig_name%></li>
-<% end%>
+        <% @requests.each do |request| %>
+            <li><%= link_to request.user_name, user_path(request.user) %> for <%= link_to request.gig_name, gig_path(request.gig) %></li>
+        <% end%>
+    <% end %>
 
-<br>
-    <%= link_to "Your Posted Gigs", user_gigs_path(@user)%>
-                    <br><br>
-    <%= link_to "New Gig Form", new_user_gig_path(current_user) %>
+<%= authorized_create_gig_button %>
+
+<%= contractor_posted_gigs %>
+    
+<% if authorized?(@user) && !@user.contractor %>
+    <h3>Gig Applications Submitted: </h3>
+        <% @user.requests.each do |request| %>
+            <li><%= link_to request.gig_name, gig_path(request.gig_id) %>
+    <% end %>
 <% end %>

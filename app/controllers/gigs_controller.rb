@@ -12,7 +12,6 @@ class GigsController < ApplicationController
     end
 
     def show
-      @user = User.find_by(id: params[:user_id])
       @request = Request.new
     end
 
@@ -54,7 +53,6 @@ class GigsController < ApplicationController
       flash[:delete] = "Your gig has been deleted."
       redirect_to user_path(current_user)
     end
-
 
     private
 

@@ -17,6 +17,17 @@ module UsersHelper
             "== Meet Your Fellow Musician =="
         end
     end
-            
-    
+
+    def authorized_to_update_user
+        if authorized?(@user)
+        tag.p(button_to('Update Your Profile', edit_user_path(current_user), method: :get))
+        end
+    end
+
+
+    def contractor_posted_gigs
+        if authorized?(@user) && @user.contractor
+        tag.p(link_to("Your Posted Gigs", user_gigs_path(@user), method: :get))
+        end
+    end    
 end

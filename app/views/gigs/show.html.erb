@@ -2,21 +2,7 @@
 <h3 style="color:DarkRed;"><%= flash[:error] %></h3>
 <h3 style="color:DarkOliveGreen;"><%= flash[:update] %></h3>
 
-<h1><%= @gig.title %></h1>
-<li><%= @gig.datetime.strftime("%b %e %Y, %l:%M %p") %>
-<li><%= @gig.description %>
-<li>$<%= @gig.payment %>
-
-<h3>Instruments needed: </h3>
-    <% @gig.instruments.each do |instrument|%>
-    <li><%= instrument.name %></li>
-<% end %>
-
-<h4>Contact for more info: 
-<%= link_to @gig.user.full_name, user_path(@gig.user) %></h4>
-<ul>
-    <li><%= @gig.user.email %>
-</ul>
+<%= render 'gig_info'%>
 
 <% if !current_user.contractor  %>
 <h3>Submit Application </h3>
@@ -26,16 +12,10 @@
         <%= f.label "I would like to apply for this gig"%>
         <%= f.check_box :application %>
 
-        <% if !current_user%>
-            <p><%= f.collection_select :user_id, User.all, :id, :email, prompt: current_user.email %>
-        <% end %>
-
         <%= f.submit "Submit Application" %>
     <% end %>
 <% end %>
 
-<% if authorized?(@gig.user)  %>
-    <p><%= button_to "Edit Gig", edit_user_gig_path(current_user, @gig), method: :get %>
-    <p><%= button_to "Delete", @gig, method: :delete %>
-<% end %>
+<%= authorized_edit_button %>
+<%= authorized_delete_button %>
 

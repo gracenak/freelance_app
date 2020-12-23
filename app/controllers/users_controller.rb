@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :authorized_to_modify_user, only: [:edit, :update]
 
   def index
     @users = User.all
   end
-
 
   def new
     @user = User.new
@@ -29,9 +29,7 @@ class UsersController < ApplicationController
   def edit
   end
 
-
   def update
-    redirect_to '/' unless @user
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
@@ -60,5 +58,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def authorized_to_modify_user
+    if !@user 
+      flash[:unauthorized] = "You are not authorized to modify this user."
+      redirect '/'
+    end
   end
 end

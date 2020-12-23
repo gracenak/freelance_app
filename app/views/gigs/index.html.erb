@@ -1,11 +1,9 @@
 <h3 style="color:DarkRed;"> <%= flash[:unauthorized] %></h3>
 
-<h2><%= index_header%></h2>
+<h1><%= index_header %></h1>
 
 <%= render partial: 'gigs', locals: {gigs: @gigs} %>
 
 <br><br>
 
-<% if current_user.contractor %>
-    <p><%= button_to "New Gig", new_user_gig_path(current_user), method: :get %></p>
-<% end %>
+<%= authorized_create_gig_button %>
