@@ -11,6 +11,12 @@ module UsersHelper
             "== CONTRACTOR STATUS =="
         end
     end
+
+    def meet_musicians
+        if @user != current_user 
+            "== Meet Your Fellow Musician =="
+        end
+    end
             
     
 end

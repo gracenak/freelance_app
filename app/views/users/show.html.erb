@@ -3,13 +3,8 @@
 <h1><%= welcome_header %></h1>
 
 <h3><%= contractor_header %></h3>
-
-
-            <br>
-
-<% if @user != current_user %>
-    <h2>== Meet Your Fellow Musician ==</h2>
-<% end %>
+        
+<h2><%= meet_musicians %></h2>
 
 <h3><%= @user.full_name %></h3>
 <h4>Instrument: </h4>
@@ -19,21 +14,18 @@
 <h4>Contact: </h4>
 <p><%= @user.email %></p>
 
-<% if @user == current_user %>
+<% if authorized?(@user) %>
     <p><%= button_to "Update Your Profile", edit_user_path(current_user), method: :get %>
 <% end %>
-
-<br><br>
 
 <% if @user.contractor %>
     <h3>Gig Applications Received: </h3>
     <% @requests.each do |request| %>
     <li><%= request.user_name %> for <%= request.gig_name%></li>
-    <% end%>
+<% end%>
 
-<h3>Check Out Your Posted Gigs</h3>
-    <%= link_to "Posted Gigs", user_gigs_path(@user)%>
-
-                    <br><br><br><br>
+<br>
+    <%= link_to "Your Posted Gigs", user_gigs_path(@user)%>
+                    <br><br>
     <%= link_to "New Gig Form", new_user_gig_path(current_user) %>
 <% end %>

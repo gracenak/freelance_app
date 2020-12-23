@@ -34,7 +34,7 @@
     <% end %>
 <% end %>
 
-<% if @gig.user == current_user  %>
+<% if authorized?(@gig.user)  %>
     <p><%= button_to "Edit Gig", edit_user_gig_path(current_user, @gig), method: :get %>
     <p><%= button_to "Delete", @gig, method: :delete %>
 <% end %>

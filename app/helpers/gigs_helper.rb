@@ -1,7 +1,9 @@
 module GigsHelper
-    def contractor_gigs_list
-        if current_user.contractor == true
-            "== LIST OF POSTED GIGS =="
+    def index_header
+        if current_user.contractor
+            "== YOUR LIST OF POSTED GIGS =="
+        else 
+            "== GIGS =="
         end
     end
 

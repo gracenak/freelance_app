@@ -27,5 +27,7 @@ class Gig < ApplicationRecord
     def self.most_recent
         all.order('datetime asc')
     end
+  end
+  
 
 

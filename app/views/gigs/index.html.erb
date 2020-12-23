@@ -1,7 +1,6 @@
 <h3 style="color:DarkRed;"> <%= flash[:unauthorized] %></h3>
-<h1>Gigs</h1>
 
-<h3><%= contractor_gigs_list%></h3>
+<h2><%= index_header%></h2>
 
 <%= render partial: 'gigs', locals: {gigs: @gigs} %>
 
