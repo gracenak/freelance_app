@@ -14,16 +14,23 @@
       <div class="container">
         <div class="navbar-header">
 
-        <a class="navbar-brand" href="<%= root_path %>"/>Home</a>
-        <% if current_user %>
-          <a class="navbar-brand" href="<%= user_path(current_user) %>"/><%= current_user.first_name %>'s Profile</a>
-          <%= link_to "Log Out", logout_path, class:"navbar-brand",method: :post %> 
-          <a class="navbar-brand" href="<%= gigs_path %>"/>Check Out Gigs</a>
-          <% else %>
-            <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
+        <a class="navbar-brand" href="<%= root_path %>"/>Home</a> |
+        <% if logged_in? %>
+          <a class="navbar-brand" href="<%= user_path(current_user) %>"/><%= current_user.first_name %>'s Profile</a>  |
+          <%= link_to "Log Out", logout_path, class:"navbar-brand",method: :post %>   |
+          <a class="navbar-brand" href="<%= gigs_path %>"/>Check Out Gigs</a>  |
+          <a class="nvabar-brand" href="<%= users_path %>"/> Meet Fellow Musicians</a>   |                       
+
+          <a class="navbar-brand" href="<%= users_contractors_path %>"/>Meet Contractors</a>  |
+          <a class="navbar-brand" href="<%= gigs_most_recent_path %>"/>Upcoming Gigs</a>  |
+          <a class="navbar-brand" href="<%= gigs_path %>"/>All Gigs</a>  |
+
+
+        <% else %>
+          <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>   |
+          <a class="navbar-brand" href="<%= login_path %>"/>Log In</a>   |
+          <p><%= link_to "Log In with Google", '/auth/google_oauth2', class:"navbar-brand", method: :post %>
         <% end %>
-        <a class="navbar-brand" href="<%= login_path %>"/>Log In</a>
-        <p><%= link_to "Log In with Google", '/auth/google_oauth2', class:"navbar-brand", method: :post %>
         
 
 
@@ -40,9 +47,6 @@
     <!-- content -->
     <div class="container"  role="main">
       <%= yield %>
-          <br><br>
-      <p><%= link_to "Check out Gigs", gigs_path %>
-      <p><%= link_to "Check out Fellow Musicians", users_path %>
 
     </div>
   </body>

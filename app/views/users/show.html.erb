@@ -20,7 +20,7 @@
 <p><%= @user.email %></p>
 
 <% if @user == current_user %>
-    <p><%= link_to "Update Your Profile", edit_user_path(current_user)%>
+    <p><%= button_to "Update Your Profile", edit_user_path(current_user), method: :get %>
 <% end %>
 
 <br><br>

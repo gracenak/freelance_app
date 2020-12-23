@@ -10,7 +10,3 @@
 <% if current_user.contractor %>
     <p><%= button_to "New Gig", new_user_gig_path(current_user), method: :get %></p>
 <% end %>
-
-<h3>Need a gig ASAP? Check out <%= link_to "Upcoming Gigs!", gigs_most_recent_path %> </h3>
-
-<p><%= link_to "Meet Contractors", users_contractors_path %>

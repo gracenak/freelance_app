@@ -24,6 +24,10 @@
       <p><%= i.label :name %>
       <%= i.text_field :name %>
     <% end %>
+    <%=f.fields_for :instruments, @gig.instruments.build do |i| %>
+      <p><%= i.label :name %>
+      <%= i.text_field :name %>
+    <% end %>
 
     <p><%= f.submit %>
 
