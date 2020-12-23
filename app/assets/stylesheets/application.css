@@ -19,7 +19,31 @@
     display: table;
   } */
 
+
+
+
+body {
+  background-color: #f6f1f0;
+      color: #808080;
+    font-family:'Sacramento';
+    line-height: 18px;
+  }
+
+
+
+  h1 {
+    font-family: "Oswald", Sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    background-color: #F5F5F5;
+    color: 808080;
+    /* border-bottom: 3px solid #ccc; */
+    font-size: 36px;
+    line-height: 54px;
+  }
+
 .field_with_errors input {
     border-color: red; 
     color: red;
 }
+

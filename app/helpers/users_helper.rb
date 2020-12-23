@@ -24,8 +24,7 @@ module UsersHelper
         end
     end
 
-
-    def contractor_posted_gigs
+    def authorized_posted_gigs
         if authorized?(@user) && @user.contractor
         tag.p(link_to("Your Posted Gigs", user_gigs_path(@user), method: :get))
         end

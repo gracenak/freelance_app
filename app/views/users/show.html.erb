@@ -19,7 +19,7 @@
 
 <%= authorized_create_gig_button %>
 
-<%= contractor_posted_gigs %>
+<%= authorized_posted_gigs %>
     
 <% if authorized?(@user) && !@user.contractor %>
     <h3>Gig Applications Submitted: </h3>

@@ -28,6 +28,7 @@ class Gig < ApplicationRecord
         all.order('datetime asc')
     end
   end
-  
+
+
 
 

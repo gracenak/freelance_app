@@ -7,8 +7,9 @@ class RequestsController < ApplicationController
     end
 
     def new
-        @request = @gig.requests.build
-    else
+        if set_gig
+            @request = @gig.requests.build
+        else
             @request = Request.new
         end
     end
