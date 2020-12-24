@@ -57,4 +57,14 @@ h1  {
   li {
     line-height: 40px;
   }
+
+  h2  {
+    font-family: "Sacramento", serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    background-color: #F5F5F5;
+    color: 808080;
+    font-size: 60px;
+    line-height: 54px;
+}
   

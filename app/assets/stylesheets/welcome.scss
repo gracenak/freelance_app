@@ -8,7 +8,7 @@
 }
 .container { 
   /* The image used */
-  background-image: url("app/assets/images/Background2.jpg"); 
+  background-image: url("../images/welcome.jpg"); 
 
   /* Full height */
   height: 100%;
@@ -25,6 +25,15 @@
   
 }
 
+.main-image {
+  height: 800px;  
+  background-size: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
 
 h1 {
   font-family: "Sacramento";
@@ -35,3 +44,22 @@ h1 {
   border-bottom: 3px solid #ccc;
   font-size: 36px;
 } 
+
+.container { 
+  /* The image used */
+  background-image: url("../images/welcome.jpg"); 
+
+  /* Full height */
+  height: 80%;
+
+  /* Center and scale the image nicely */
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  text-align: center;
+  color: 808080;
+  
+}
