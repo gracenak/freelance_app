@@ -37,7 +37,7 @@
         <% end %>
 
         <% if current_user.contractor %>
-          <a class="navbar-brand" href="<%= new_user_gig_path(current_user) %>"/>Create New Gig</a>   |
+          <a class="navbar-brand" href="<%= new_user_gig_path(current_user) %>"/>Create New Gig</a>  
         <% end %>
    
         <% else %>
@@ -45,12 +45,6 @@
           <a class="navbar-brand" href="<%= login_path %>"/>Log In</a>   |
           <%= link_to "Log In with Google", '/auth/google_oauth2', class:"navbar-brand", method: :post %> |
         <% end %>
-
-
-      
-        
-
-
 
         </div>
         <div class="navbar-collapse collapse">
