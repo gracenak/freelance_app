@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   def authorized_to_modify_user
     if !@user 
       flash[:unauthorized] = "You are not authorized to modify this user."
-      redirect '/'
+      redirect_to '/'
     end
   end
 end
