@@ -1,7 +1,7 @@
 class User < ApplicationRecord
    
     has_many :requests
-    has_many :posted_gigs, through: :requests, source: :gigs # investigate
+    has_many :posted_gigs, through: :requests, source: :gigs
     
     has_many :gigs
 
@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
     scope :contractor, -> { where(contractor: 'true') }
 
-    has_secure_password #validations for presence of password
+    has_secure_password 
 
 
     def self.find_or_create_by_omniauth(auth)
