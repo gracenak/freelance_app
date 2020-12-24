@@ -6,3 +6,35 @@
 .home {
     background-color: #f6f1f0;
   }
+  .container { 
+    /* The image used */
+    background-image: url("app/assets/images/Background2.jpg"); 
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+    text-align: center;
+    color: 808080;
+    
+  }
+
+
+  h1 {
+    font-family: "Sacramento";
+    font-weight: 400;
+    letter-spacing: 2px;
+    background-color: #F5F5F5;
+    color: 808080;
+    border-bottom: 3px solid #ccc;
+    font-size: 36px;
+  }
+
+
+  
