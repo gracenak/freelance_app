@@ -16,10 +16,6 @@
             <li><%= link_to request.user_name, user_path(request.user) %> for <%= link_to request.gig_name, gig_path(request.gig) %></li>
         <% end%>
     <% end %>
-
-<%= authorized_create_gig_button %>
-
-<%= authorized_posted_gigs %>
     
 <% if authorized?(@user) && !@user.contractor %>
     <h3>Gig Applications Submitted: </h3>
