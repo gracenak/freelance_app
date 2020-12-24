@@ -30,7 +30,6 @@ class GigsController < ApplicationController
           flash[:success] = "Your gig has been created successfully!"
           redirect_to gig_path(@gig)
         else
-          flash[:warning] = "#{@gig.errors.full_messages.to_sentence}."
           render :new
         end
       end

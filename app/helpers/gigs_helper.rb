@@ -9,7 +9,7 @@ module GigsHelper
 
     def authorized_edit_button
         if authorized?(@gig.user)
-            tag.p(button_to('Edit Gig', edit_user_path(current_user, @gig), method: :get))
+            tag.p(button_to('Edit Gig', edit_user_gig_path(current_user, @gig), method: :get))
         end
     end
 

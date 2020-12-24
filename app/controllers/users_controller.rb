@@ -17,7 +17,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/login'
     else
-      flash[:message] = "#{@user.errors.full_messages.to_sentence}."
       render :new
     end
   end
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
-      flash[:update] = "#{@user.errors.full_messages.to_sentence}"
       render :edit
     end
   end
