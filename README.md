@@ -1,6 +1,7 @@
 <h1>Freelance App</h1>
 
-Here is a handy tool that can be utilized by all freelancers to find gigs, meet fellow musicians and contractors. A user can sign up as a contractor to post gigs and/or sign up as musician to find gigs and a submit an application for consideration.
+Do you need to find a gig ASAP? Are you a contractor in need of
+musicians? No problem! Here is a versitile application that can be utilized by musicians and contractors. Users have access to a listing of gigs, can submit applications upon interest of gigs, and meet fellow musicians/contractors through their profile. As a contractor, you can post gigs and will be provided with a listing of applications received at your home page. You will be able to review their profile to aid you in the hiring process.
 
 This rails application was created as a project requirement for the <a href="https://flatironschool.com/career-courses/coding-bootcamp/online">Flatiron Online Software Engineering Program</a>.
 
@@ -10,19 +11,23 @@ An MVC rails application that uses:
 <ul>
     <li> Sqlite database
     <li> ActiveRecord
-    <li> RESTful routes
+    <li> RESTful routes and Nested routes
     <l1> Sessions
     <li> Signup/Login/Logout 
+    <l1> Omniauth gems for login via Google
     <li> ORM - Object Relational Mapping between Models
         - belongs_to
         - has_many
+        - has_many :through
         - many to many 
-    <l1> CRUD functionality on belongs_to instances of a user:
+    <l1> CRUD functionality:
         - Create
         - Read
         - Update
         - Delete
-    <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, read, update, and delete their own gigs
+    <li> One class level Active Record Scope methods
+    <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, read, update, and delete their own gigs and user profile.
+    <li> Helper methods and partials to limit logic in views and the controllers
     <li> Validations
         - uniqueness of a user's login attributes
         - input to protect from bad data being persisted into the database
@@ -35,7 +40,7 @@ An MVC rails application that uses:
     <li> Run 'bundle install'
     <li> Run 'rake db:migrate' # migrates the tables into the database
     <li> Run 'rake db:seed'    # migrates this seed file containing initial data to test the application with
-    <li> Start running the server with 'shotgun' and visit <a href="https://http://localhost:3000/"></a> to visit the homepage.
+    <li> Start running the server with 'rails s' and visit <a href="https://http://localhost:3000/"></a> to access the homepage.
     <li> Enjoy!
 </ul>
 
@@ -44,32 +49,3 @@ The Freelance Sinatra Expense Tracker is dedicated to bringing a welcoming, harr
 
 <h2>License</h2>
 This application is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
-
-
-
-
-
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
