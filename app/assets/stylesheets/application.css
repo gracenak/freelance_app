@@ -32,13 +32,13 @@ body {
 
 
   h1 {
-    font-family: "Sacramento";
+    font-family: "Sacramento", serif;
     font-weight: 400;
     letter-spacing: 2px;
     background-color: #F5F5F5;
     color: 808080;
     /* border-bottom: 3px solid #ccc; */
-    font-size: 36px;
+    font-size: 60px;
     line-height: 54px;
   }
 
@@ -46,6 +46,16 @@ body {
     border-color: red; 
     color: red;
 }
+ .navbar-header {
+  font-family: "Dancing-Script";
+  font-weight: 400;
+  letter-spacing: 2px;
+  background-color: #F5F5F5;
+  color: 808080;
+  /* border-bottom: 3px solid #ccc; */
+  font-size: 18px;
+  line-height: 54px;
+ }
 
 
 

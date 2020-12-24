@@ -1,9 +1,9 @@
 module GigsHelper
     def index_header
         if current_user.contractor
-            "== POSTED GIGS =="
+            "Posted Gigs"
         else
-            "== GIGS =="
+            "Gigs"
         end
     end
 
