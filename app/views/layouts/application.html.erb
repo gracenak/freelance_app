@@ -26,10 +26,9 @@
         <a class="navbar-brand" href="<%= root_path %>"/>Home</a> |
         <% if logged_in? %>
           <a class="navbar-brand" href="<%= user_path(current_user) %>"/><%= current_user.first_name %>'s Profile</a>  |
-          <a class="navbar-brand" href="<%= gigs_path %>"/>Check Out Gigs</a>  |
+          <a class="navbar-brand" href="<%= gigs_path %>"/>Upcoming Gigs</a>  |
           <a class="nvabar-brand" href="<%= users_path %>"/> Meet Fellow Musicians</a>   |                       
           <a class="navbar-brand" href="<%= users_contractors_path %>"/>Meet Contractors</a>  |
-          <a class="navbar-brand" href="<%= gigs_most_recent_path %>"/>Upcoming Gigs</a>  |
           <%= link_to "Log Out", logout_path, class:"navbar-brand",method: :post %>   |
 
         <% if logged_in? && current_user.contractor %>

@@ -1,11 +1,4 @@
 module GigsHelper
-    def index_header
-        if current_user.contractor
-            "Posted Gigs"
-        else
-            "Gigs"
-        end
-    end
 
     def authorized_edit_button
         if authorized?(@gig.user)

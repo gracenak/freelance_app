@@ -7,7 +7,7 @@ class GigsController < ApplicationController
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
         @gigs = @user.gigs
       else
-        @gigs = Gig.all
+        @gigs = Gig.most_recent
       end
     end
 
