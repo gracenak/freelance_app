@@ -21,7 +21,7 @@ yasmin = User.create(
     last_name: "Winter", 
     email: "yasmin@gmail.com", 
     instrument: "piano",
-    bio: "Yasmin is an accomplished pianist in the MYC area. She is also a well sought out teacher for all ages.",
+    bio: "Yasmin is an accomplished pianist in the NYC area. She is also a sought out piano teacher for all levels and ages.",
     contractor: false,
     password: "yasmin"
 )
@@ -61,14 +61,14 @@ voice = Instrument.create(name: "voice")
 drumset = Instrument.create(name: "drumset")
 bass = Instrument.create(name: "bass")
 
-a = GigInstrument.create(gig_id: 1, instrument_id: violin)
-b = GigInstrument.create(gig_id: 1, instrument_id: viola)
-c = GigInstrument.create(gig_id: 1, instrument_id: cello)
+a = GigInstrument.create(gig_id: 1, instrument_id: 1)
+b = GigInstrument.create(gig_id: 1, instrument_id: 2)
+c = GigInstrument.create(gig_id: 1, instrument_id: 3)
 
-d = GigInstrument.create(gig_id: 2, instrument_id: piano)
-e = GigInstrument.create(gig_id: 2, instrument_id: voice)
-f = GigInstrument.create(gig_id: 2, instrument_id: bass)
-g = GigInstrument.create(gig_id: 2, instrument_id: drumset)
+d = GigInstrument.create(gig_id: 2, instrument_id: 4)
+e = GigInstrument.create(gig_id: 2, instrument_id: 5)
+f = GigInstrument.create(gig_id: 2, instrument_id: 7)
+g = GigInstrument.create(gig_id: 2, instrument_id: 6)
 
 request = Request.create(user_id: 2, gig_id: 2, application: true)
 request2 = Request.create(user_id: 3, gig_id: 1, application: true)
