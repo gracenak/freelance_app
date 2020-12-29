@@ -32,8 +32,10 @@ An MVC rails application that uses:
     <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, update, and delete their own gigs and user profile.
     <li> Helper methods and partials to limit logic in views and the controllers
     <li> Validations
-        <ol>uniqueness of a user's login attributes
-        <ol>presence and other custom validations to protect from bad or repetetive data from being persisted into the database
+        <ol>
+            <li>uniqueness of a user's login attributes
+            <li>presence and other custom validations to protect from bad or repetetive data from being persisted into the database
+        </ol>
     <li> Flash messages to display validation error messages, and flash success messages to validate successful creation, edits, and deletion of gigs. 
 </ul>
 
