@@ -1,7 +1,7 @@
 <h1>Freelance App</h1>
 
 Do you need to find a gig ASAP? Are you a contractor in need of
-musicians? No problem! Here is a versitile application that can be utilized by musicians and contractors. Users have access to a listing of gigs, can submit applications upon interest of gigs, and meet fellow musicians/contractors through their profile. As a contractor, you can post gigs and will be provided with a listing of applications received at your home page. You will be able to review their profile to aid you in the hiring process.
+musicians? No problem! Here is a versatile application that can be utilized by musicians and contractors. Users have access to a listing of gigs, can submit applications upon interest of gigs, and meet fellow musicians/contractors through their profile. As a contractor, you can post gigs and will be provided with a listing of applications received at your home page. You will be able to review their profile to aid you in the hiring process.
 
 This rails application was created as a project requirement for the <a href="https://flatironschool.com/career-courses/coding-bootcamp/online">Flatiron Online Software Engineering Program</a>.
 
@@ -29,12 +29,12 @@ An MVC rails application that uses:
             <li>Delete
         </ol>
     <li> One class level Active Record Scope methods
-    <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, update, and delete their own gigs and user profile.
+    <li> Helper methods to protect the views of the current_user. Only authorized users should be allowed to create, update, and delete their own gigs and user profile.
     <li> Helper methods and partials to limit logic in views and the controllers
     <li> Validations
         <ol>
             <li>uniqueness of a user's login attributes
-            <li>presence and other custom validations to protect from bad or repetetive data from being persisted into the database
+            <li>presence and other custom validations to protect from bad or repetetive data being persisted into the database
         </ol>
     <li> Flash messages to display validation error messages, and flash success messages to validate successful creation, edits, and deletion of gigs. 
 </ul>
