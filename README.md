@@ -12,26 +12,26 @@ An MVC rails application that uses:
     <li> Sqlite database
     <li> ActiveRecord
     <li> RESTful routes and Nested routes
-    <l1> Sessions
+    <li> Sessions
     <li> Signup/Login/Logout 
-    <l1> Omniauth gems for login via Google
+    <li> Omniauth gems for login via Google
     <li> ORM - Object Relational Mapping between Models
-        - belongs_to
-        - has_many
-        - has_many :through
-        - many to many 
-    <l1> CRUD functionality:
-        - Create
-        - Read
-        - Update
-        - Delete
+        <ol> belongs_to
+        <ol>has_many
+        <ol>has_many :through
+        <ol>many-to-many 
+    <li> CRUD functionality:
+        <ol>Create
+        <ol>Read
+        <ol>Update
+        <ol>Delete
     <li> One class level Active Record Scope methods
-    <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, read, update, and delete their own gigs and user profile.
+    <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, update, and delete their own gigs and user profile.
     <li> Helper methods and partials to limit logic in views and the controllers
     <li> Validations
-        - uniqueness of a user's login attributes
-        - input to protect from bad data being persisted into the database
-    <li> Flash messages to display validation failures with error messages, and flash success messages to validate successful signup, logout, as well as successful creation and update of a gig. 
+        <ol>uniqueness of a user's login attributes
+        <ol>presence and other custom validations to protect from bad or repetetive data from being persisted into the database
+    <li> Flash messages to display validation error messages, and flash success messages to validate successful creation, edits, and deletion of gigs. 
 </ul>
 
 <h2>Install Instructions</h2>
@@ -39,13 +39,13 @@ An MVC rails application that uses:
     <li> Clone <a href="https://github.com/gracenak/freelance_app.git">this repo</a>.
     <li> Run 'bundle install'
     <li> Run 'rake db:migrate' # migrates the tables into the database
-    <li> Run 'rake db:seed'    # migrates this seed file containing initial data to test the application with
-    <li> Start running the server with 'rails s' and visit <a href="https://http://localhost:3000/"></a> to access the homepage.
+    <li> Run 'rake db:seed'    # migrates seed file containing initial data to test the application with
+    <li> Run the server with 'rails s' and click <a href="https://http://localhost:3000/">here</a> to access the homepage.
     <li> Enjoy!
 </ul>
 
 <h2>Contributor's Guide </h2>
-The Freelance Sinatra Expense Tracker is dedicated to bringing a welcoming, harrassment free, working environment. Please see the <a href="https://www.contributor-covenant.org/version/2/0/code_of_conduct/">Contributer Covenant Conduct of Code</a>.
+The Freelance Application is dedicated to bringing a welcoming, harrassment free, working environment. Please see the <a href="https://www.contributor-covenant.org/version/2/0/code_of_conduct/">Contributer Covenant Conduct of Code</a>.
 
 <h2>License</h2>
 This application is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
