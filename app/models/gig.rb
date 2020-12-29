@@ -3,10 +3,10 @@ class Gig < ApplicationRecord
     belongs_to :user
     
     has_many :gig_instruments
-    has_many :instruments, through: :gig_instruments
+    has_many :instruments, through: :gig_instruments, dependent: :destroy
 
     has_many :requests
-    has_many :users, through: :requests
+    has_many :users, through: :requests, dependent: :destroy
 
     validates :title, :datetime, :description, presence: true
     validates :payment, numericality: {greater_than_or_equal_to: 0}

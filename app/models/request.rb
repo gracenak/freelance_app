@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
     belongs_to :user
-    belongs_to :gig
+    belongs_to :gig, dependent: :destroy
     validates :application, acceptance: { message: 'box must be checked to apply' }
     validates :gig, :uniqueness => { scope: :user_id, message: 'has already received your application.'}  
 
