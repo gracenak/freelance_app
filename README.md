@@ -16,15 +16,18 @@ An MVC rails application that uses:
     <li> Signup/Login/Logout 
     <li> Omniauth gems for login via Google
     <li> ORM - Object Relational Mapping between Models
-        <ol> belongs_to
-        <ol>has_many
-        <ol>has_many :through
-        <ol>many-to-many 
+        <ol> 
+            <li>belongs_to
+            <li>has_many
+            <li>has_many: :through many-to-many 
+        </ol>
     <li> CRUD functionality:
-        <ol>Create
-        <ol>Read
-        <ol>Update
-        <ol>Delete
+        <ol>
+            <li>Create
+            <li>Read
+            <li>Update
+            <li>Delete
+        </ol>
     <li> One class level Active Record Scope methods
     <li> Helper methods to protect the views of the current_user. Only the logged_in user should be allowed to create, update, and delete their own gigs and user profile.
     <li> Helper methods and partials to limit logic in views and the controllers
