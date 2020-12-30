@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:omniauth, :new, :create]
 
 
-  def omniauth #logs users in with omniauth
+  def omniauth 
     user = User.find_or_create_by_omniauth(auth)
 
     if user.valid?

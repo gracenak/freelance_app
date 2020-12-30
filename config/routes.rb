@@ -14,13 +14,17 @@ Rails.application.routes.draw do
 
   get '/users/contractors', to: 'users#contractors'
 
-  resources :users
+
+
+  get '/gigs/highest_paying', to: 'gigs#highest_paying'
+
+  # resources :users
   resources :gigs, only: [:index, :show, :create, :update, :destroy]
   
   resources :requests
 
-  resources :users, only: [:show, :index] do
+  resources :users do
     resources :gigs, only: [:index, :show, :new, :create, :edit, :update]
-    
+
   end 
 end
