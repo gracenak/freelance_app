@@ -53,13 +53,13 @@ user_id: 1
 )
 
 
-violin = Instrument.create(name: "violin")
-viola = Instrument.create(name: "viola") 
-cello = Instrument.create(name: "cello")
-piano = Instrument.create(name: "piano")
-voice = Instrument.create(name: "voice")
-drumset = Instrument.create(name: "drumset")
-bass = Instrument.create(name: "bass")
+violin = Instrument.create(name: "Violin")
+viola = Instrument.create(name: "Viola") 
+cello = Instrument.create(name: "Cello")
+piano = Instrument.create(name: "Piano")
+voice = Instrument.create(name: "Voice")
+drumset = Instrument.create(name: "Drumset")
+bass = Instrument.create(name: "Bass")
 
 a = GigInstrument.create(gig_id: 1, instrument_id: 1)
 b = GigInstrument.create(gig_id: 1, instrument_id: 2)

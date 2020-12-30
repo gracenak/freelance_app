@@ -12,7 +12,6 @@ class Request < ApplicationRecord
     end
     
     def user_name=(name)
-        # binding.pry
         user = User.find_or_create_by(full_name: name)
         self.user = user
     end
