@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @requests = Request.where(gig_id: @user.gigs)
+    @requests = Request.show_requests(@user)
   end
 
   def edit

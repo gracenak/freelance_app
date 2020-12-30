@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'welcome#home'
 
-  get '/signup' => 'users#new'
-  post '/signup' => 'users#create'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
 
-  get '/login' =>  'sessions#new'
-  post '/login' => 'sessions#create'
-  post '/logout' => 'sessions#destroy' 
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy' 
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 

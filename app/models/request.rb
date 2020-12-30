@@ -29,4 +29,8 @@ class Request < ApplicationRecord
         @user = User.find(params[:id])
         @user != current_user
     end
+
+    def self.show_requests(user)
+        @requests = Request.where(gig_id: user.gigs)
+    end
 end
