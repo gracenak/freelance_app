@@ -45,7 +45,7 @@ An MVC rails application that uses:
     <li> Run 'bundle install'
     <li> Run 'rake db:migrate' # migrates the tables into the database
     <li> Run 'rake db:seed'    # migrates seed file containing initial data to test the application with
-    <li> Run the server with 'rails s' and click <a href="https://http://localhost:3000/">here</a> to access the homepage.
+    <li> Run the server with 'rails s' and click <a href="http://localhost:3000/">here</a> to access the homepage.
     <li> Enjoy!
 </ul>
 
