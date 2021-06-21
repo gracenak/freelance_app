@@ -30,6 +30,6 @@ class Request < ApplicationRecord
     end
 
     def self.show_requests(user)
-        @requests = Request.where(gig_id: user.posted_gigs)
+        @requests = Request.where(gig_id: user.gigs)
     end
 end
