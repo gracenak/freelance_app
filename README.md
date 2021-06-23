@@ -5,7 +5,7 @@ musicians? No problem! Here is a versatile application that can be utilized by m
 
 This rails application was created as a project requirement for the <a href="https://flatironschool.com/career-courses/coding-bootcamp/online">Flatiron Online Software Engineering Program</a>.
 
-For more information, check out <a href="https://gracenak.medium.com/jingle-bell-rails-associations-and-nested-forms-all-the-way-31ce77e4e4f8">my blog</a> and a <a href="https://www.youtube.com/watch?v=NdAa5LUz7Ns&t=14s">walkthrough demonstration</a> of this project.
+For more information, check out <a href="https://gracenak.medium.com/jingle-bell-rails-associations-and-nested-forms-all-the-way-31ce77e4e4f8">my blog</a> and a <a href="https://www.youtube.com/watch?v=8Jp5EzG3bJY">walkthrough demonstration</a> of this project.
 
 An MVC rails application that uses:
 <ul>
